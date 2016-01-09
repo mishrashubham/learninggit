@@ -24,9 +24,11 @@ def processing(sc1,sqlContext,x):
    f=open("%s"%x,"a+")
    
    for i in t:
-       if "_DONE" not in i:
+        try:
          f.write("for partition %s"%i)
          SubSegFile = sqlContext.parquetFile("%s"%i)
+        except:
+             continue
          output=SubSegFile.map(lambdareplica).collect()
          #print output
          for k in output:   
