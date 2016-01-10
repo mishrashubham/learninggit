@@ -7,7 +7,8 @@ parser.add_option("--file",dest="file_path",
                     help="file you want to convert")
 parser.add_option("--col",dest="columns",
                    help="columns u want to continue")
-parser.add_option("--out",dest="op_path")
+parser.add_option("--out",dest="op_path",
+                   help="the file in which you want to write the converted data")
 (options, args) = parser.parse_args()
 
 APP_NAME = " HelloWorld of Big Data"
@@ -31,14 +32,10 @@ def processing(sc1,sqlContext,x):
    f=open("%s"%x,"a+")
    for i in t:
      if ("_DONE" or "_SUCCESS") not in i:
-        
          SubSegFile = sqlContext.parquetFile("%s"%i)
-     
-    
          output=SubSegFile.map(lambdareplica).collect()
          for k in output:   
              f.write("%s\n"%list(k))
-   
          f.write("\n\n")
 def lambdareplica(x):
        return x[a],x[b],x[c],x[d],x[e]
