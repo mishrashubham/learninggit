@@ -1,9 +1,13 @@
-command for using parquetreader.py:
+#First run the header_getter.py to get the headers present in the parquet file.
+#After running the above script we will have header list and now select the column headers which you want to read  and pass against the (--col)in the parquetreader.py as given in the example.
+#As of now ,script is supporting 10 columns for conversion.Passing 10 columns is mandotry
 
+
+#command for using parquetreader.py:
 
 /opt/spark/bin/spark-submit  --master local[15] /var/home/root/shubham.py --file /data/collector/1/output/tektronicswireless/2015/12/10/16/30 --out /var/home/root/final23.txt --col 1,2,3,4,5,6,7,8,9,10
 
 
-command for using header_getter.py
+#command for using header_getter.py
 
 /opt/spark/bin/spark-submit  --master local[15] /var/home/root/header.py --file /data/collector/1/output/scefixed/2015/12/10/16/30
