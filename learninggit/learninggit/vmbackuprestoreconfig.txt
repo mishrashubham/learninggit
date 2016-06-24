@@ -1,0 +1,3 @@
+Type:Both
+Baremetal_backup_details:192.168.162.90,VM1-GCN1,/user/shubham/test,root,root@123
+Baremetal_restore_details:192.168.162.90,VM1-GCN1,VM1-GCN,/user/shubham/test,root,root@123
